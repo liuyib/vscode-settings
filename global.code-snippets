@@ -1,0 +1,290 @@
+{
+  "调试 React 项目": {
+    "scope": "json,jsonc",
+    "prefix": ["debug-react"],
+    "body": [
+      "{",
+      "  \"type\": \"chrome\",",
+      "  \"request\": \"launch\",",
+      "  \"runtimeExecutable\": \"canary\",",
+      "  \"name\": \"调试 React 项目\",",
+      "  \"url\": \"http://localhost:${1:3000}\",",
+      "  \"userDataDir\": false,",
+      "  \"webRoot\": \"\\${workspaceFolder}\"",
+      "}"
+    ],
+    "description": "调试 React 的 VS Code launch.json 配置"
+  },
+  "文件注释": {
+    "prefix": ["log-file"],
+    "body": [
+      "/*",
+      " * @Author: ${1:liuyib<https://github.com/liuyib>}",
+      " * @Date: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+      " * @Description: ${2}",
+      " * @LastEditTime: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+      " * @FilePath: /$WORKSPACE_NAME/$RELATIVE_FILEPATH",
+      " */"
+    ]
+  },
+  "日期和时间 - 当前时间": {
+    "prefix": ["sj"],
+    "body": [
+      "$CURRENT_YEAR${1:-}$CURRENT_MONTH${1:-}$CURRENT_DATE $CURRENT_HOUR${2::}$CURRENT_MINUTE${2::}$CURRENT_SECOND"
+    ]
+  },
+  "日期和时间 - 格式化占位符": {
+    "prefix": ["date"],
+    "body": ["YYYY${1:/}MM${1:/}DD HH:mm:ss"]
+  },
+  "HTML - Tag": {
+    "prefix": ["div"],
+    "body": "<${1:div}>${2}</${1:div}>"
+  },
+  "JavaScript - console.log": {
+    "prefix": ["log"],
+    "body": "console.log(`${1} -->`, ${1});"
+  },
+  "React - useState": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": ["useS"],
+    "body": ["const [${1:first}, set${1:first}] = useState(${2:second})"]
+  },
+  "React - useEffect": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": ["useE"],
+    "body": ["useEffect(() => {", "  ${1:first}", "}, [${2}]);"]
+  },
+  "TypeScript - interface": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["inter", "interface"],
+    "body": ["interface ${1:name} {", "  ${2:key}: ${3:type};", "}"]
+  },
+  "TypeScript - type": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["type"],
+    "body": ["type ${1:name} = ${2:type};"]
+  },
+  "Test - case": {
+    "prefix": ["test("],
+    "body": [
+      "test('${1:desc}', () => {",
+      "  expect(${2:fn}).toBe(${3:expect});",
+      "});"
+    ]
+  },
+  "NPM - scripts": {
+    "prefix": ["npm-script-config"],
+    "body": [
+      "\"eslint\": \"eslint --fix 'src/**/**/*.{js,jsx,ts,tsx}'\",",
+      "\"prettier\": \"prettier --write 'src/**/**/*.{js,jsx,ts,tsx,css,scss,less,json,md,yml,yaml}'\","
+    ],
+    "description": "npm 指令预设，目前包括：eslint, prettier"
+  },
+  "lint-staged configuration": {
+    "scope": "json,jsonc",
+    "prefix": ["lint-staged-config"],
+    "body": [
+      "\"lint-staged\": {",
+      "  \"**/*.{js,jsx,ts,tsx,css,scss,less,md,json,yml,yaml}\": [",
+      "    \"prettier --write\"",
+      "  ],",
+      "  \"**/*.{js,jsx,ts,tsx}\": [",
+      "    \"eslint --fix\"",
+      "  ]",
+      "},"
+    ]
+  },
+  "Browserslist configuration": {
+    "scope": "json,jsonc",
+    "prefix": ["browserslist-config"],
+    "body": [
+      "\"browserslist\": {",
+      "  \"production\": [",
+      "    \">0.2%\",",
+      "    \"not dead\",",
+      "    \"not op_mini all\"",
+      "  ],",
+      "  \"development\": [",
+      "    \"last 1 chrome version\",",
+      "    \"last 1 firefox version\",",
+      "    \"last 1 safari version\"",
+      "  ]",
+      "},"
+    ]
+  },
+  "EditorConfig configuration": {
+    "prefix": ["editor-config"],
+    "body": [
+      "# https://editorconfig.org",
+      "",
+      "root = true",
+      "",
+      "[*]",
+      "charset = utf-8",
+      "end_of_line = lf",
+      "indent_style = space",
+      "indent_size = 2",
+      "insert_final_newline = true",
+      "trim_trailing_whitespace = true",
+      ""
+    ]
+  },
+  "Prettier configuration": {
+    "prefix": ["prettier-config"],
+    "body": [
+      "{",
+      "  \"trailingComma\": \"all\",",
+      "  \"tabWidth\": 2,",
+      "  \"printWidth\": 80,",
+      "  \"semi\": true,",
+      "  \"singleQuote\": true,",
+      "  \"arrowParens\": \"always\"",
+      "}",
+      ""
+    ]
+  },
+  "TypeScript configuration": {
+    "prefix": ["ts-config"],
+    "body": [
+      "// https://www.typescriptlang.org/tsconfig",
+      "{",
+      "  \"compilerOptions\": {",
+      "    \"baseUrl\": \".\",",
+      "    \"paths\": {",
+      "      \"@/*\": [\"./src/*\"]",
+      "    },",
+      "    \"target\": \"es5\",",
+      "    \"lib\": [\"dom\", \"dom.iterable\", \"esnext\"],",
+      "    \"useDefineForClassFields\": true,",
+      "    \"experimentalDecorators\": true,",
+      "    \"allowJs\": false,",
+      "    \"skipLibCheck\": true,",
+      "    \"esModuleInterop\": true,",
+      "    \"allowSyntheticDefaultImports\": true,",
+      "    \"strict\": true,",
+      "    \"forceConsistentCasingInFileNames\": true,",
+      "    \"noFallthroughCasesInSwitch\": true,",
+      "    \"module\": \"esnext\",",
+      "    \"moduleResolution\": \"node\",",
+      "    \"resolveJsonModule\": true,",
+      "    \"isolatedModules\": true,",
+      "    \"noEmit\": true,",
+      "    \"jsx\": \"react-jsx\"",
+      "  },",
+      "  \"include\": [\"src\"],",
+      "  \"exclude\": [\"node_modules\"]",
+      "}",
+      ""
+    ]
+  },
+  "TypeScript .d.ts configuration": {
+    "prefix": ["ts-dot-d-config"],
+    "body": [
+      "/// <reference types=\"vite/client\" />",
+      "",
+      "declare const __DEV__: string;",
+      "declare const __PRD__: string;",
+      "",
+      "declare module '*.css';",
+      "declare module '*.less';",
+      "declare module '*.scss';",
+      "declare module '*.sass';",
+      "declare module '*.svg';",
+      "declare module '*.png';",
+      "declare module '*.jpg';",
+      "declare module '*.jpeg';",
+      "declare module '*.gif';",
+      "declare module '*.bmp';",
+      ""
+    ]
+  },
+  "Vite configuration": {
+    "prefix": ["vite-config"],
+    "body": [
+      "import { resolve } from 'path';",
+      "import { defineConfig } from 'vite';",
+      "import pluginReact from '@vitejs/plugin-react';",
+      "import pluginImport from 'vite-plugin-importer';",
+      "import { visualizer } from 'rollup-plugin-visualizer';",
+      "import AntdThemeModifyVars from './config/theme.config.js';",
+      "",
+      "// https://cn.vitejs.dev/config/",
+      "export default defineConfig(({ command, mode }) => {",
+      "  return {",
+      "    base: '${1:/}',",
+      "    define: {",
+      "      __DEV__: mode === 'development',",
+      "      __PRD__: mode === 'production',",
+      "    },",
+      "    resolve: {",
+      "      alias: {",
+      "        '@': resolve(__dirname, 'src'),",
+      "      },",
+      "    },",
+      "    server: {",
+      "      port: ${2:3721},",
+      "      proxy: {",
+      "        '/api': {",
+      "          target: 'https://${3}',",
+      "          changeOrigin: true,",
+      "        },",
+      "      },",
+      "    },",
+      "    // https://cn.vitejs.dev/config/build-options.html",
+      "    build: {",
+      "      target: 'es2015',",
+      "      outDir: 'build',",
+      "      sourcemap: false,",
+      "      manifest: false,",
+      "      minify: 'esbuild',",
+      "      rollupOptions: {",
+      "        output: {",
+      "          manualChunks: {",
+      "            react: ['react', 'react-dom', 'react-router', 'react-router-dom'],",
+      "            i18next: ['i18next', 'react-i18next'],",
+      "            mobx: ['mobx', 'mobx-react', 'mobx-react-lite'],",
+      "            lodash: ['lodash', 'lodash-es'],",
+      "            moment: ['moment'],",
+      "            antd: ['@ant-design/icons', '@ant-design/colors'],",
+      "            utils: ['classnames', 'axios', 'qs', 'dayjs'],",
+      "          },",
+      "        },",
+      "      },",
+      "    },",
+      "    esbuild: {},",
+      "    css: {",
+      "      // 开发环境是否启用 source map",
+      "      devSourcemap: true,",
+      "      preprocessorOptions: {",
+      "        less: {",
+      "          // 修改 antd 的内置样式",
+      "          modifyVars: AntdThemeModifyVars,",
+      "          javascriptEnabled: true,",
+      "        },",
+      "      },",
+      "    },",
+      "    plugins: [",
+      "      pluginReact(),",
+      "      pluginImport({",
+      "        libraryName: 'antd',",
+      "        libraryDirectory: 'es',",
+      "        style: true,",
+      "      }),",
+      "      visualizer(),",
+      "    ],",
+      "  };",
+      "});",
+      ""
+    ]
+  },
+  "robots.txt configuration": {
+    "prefix": ["robots-config"],
+    "body": [
+      "# https://www.robotstxt.org/robotstxt.html",
+      "User-agent: *",
+      "Disallow: /",
+      ""
+    ]
+  }
+}
